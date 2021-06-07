@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>super calculator</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+</head>
+
+<body>
+    <div class="container mt-3">
+        <div class="d-flex">
+            <div class="text-center mx-auto">
+                <h3 class="mb-3">Enter Your Age</h3>
+                <input type="number" name="age" class="form-control mb-3 w-50 d-block mx-auto text-center" id="inputAge"">
+                <div class="mx-auto p-2 d-flex data d-none">
+                <div class="col">
+                    <h4 class="d-inline">$</h4><h4 class="mx-auto d-inline-block price">0</h4>
+                    <p class="mx-auto">The average <span id="age"></span> years has $<span class="price"></span> in
+                        their Super.</p>
+                    <p> However, if you are looking to retire confortably, <strong>you should have around $<span
+                                id="total-price"></span></strong> by now</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        const data = [['9,000', '19,800'],
+        ['13,000', '28,600'],
+        ['17,000', '37,400'],
+        ['21,000', '46,200'],
+        ['25,000', '55,000'],
+        ['28,000', '61,600'],
+        ['34,000', '74,800'],
+        ['40,000', '88,000'],
+        ['46,000', '101,200'],
+        ['52,000', '114,400'],
+        ['58,000', '127,600'],
+        ['65,000', '143,000'],
+        ['72,000', '158,400'],
+        ['79,000', '173,800'],
+        ['86,000', '189,200'],
+        ['92,000', '202,400'],
+        ['101,000', '222,200'],
+        ['109,000', '239,800'],
+        ['118,000', '259,600'],
+        ['126,000', '277,200'],
+        ['135,000', '297,000'],
+        ['144,000', '316,800'],
+        ['154,000', '338,800'],
+        ['163,000', '358,600'],
+        ['173,000', '380,600'],
+        ['182,000', '400,400'],
+        ['194,000', '426,800'],
+        ['206,000', '453,200'],
+        ['218,000', '479,600'],
+        ['230,000', '506,000'],
+        ['242,000', '532,400'],
+        ['256,000', '563,200'],
+        ['270,000', '594,000'],
+        ['284,000', '624,800'],
+        ['297,000', '653,400'],
+        ['311,000', '684,200'],
+        ['323,000', '710,600'],
+        ['335,000', '737,000'],
+        ['347,000', '763,400'],
+        ['360,000', '792,000'],
+        ['372,000', '818,400'],
+        ['374,000', '822,800'],
+        ['377,000', '829,400'],
+        ['379,000', '833,800'],
+        ['382,000', '840,400'],
+        ['385,000', '847,000']];
+        $('input[type=number]').keyup(function () {
+            const age = $(this).val();
+            console.log(age);
+            if (age > 19 && age < 65) {
+                $('.data').removeClass('d-none')
+            }
+            else {
+                if (!$('.data').hasClass('d-none')) {
+                    $('.data').addClass('d-none')
+                }
+            }
+            index = age - 20;
+            $("#age").text(age);
+            $(".price").text(data[index][0]);
+            $("#total-price").text(data[index][1]);
+        })
+        $('input[type=number]').change(function () {
+            const age = $(this).val();
+            console.log(age);
+            if (age > 19 && age < 65) {
+                $('.data').removeClass('d-none')
+            }
+            else {
+                if (!$('.data').hasClass('d-none')) {
+                    $('.data').addClass('d-none')
+                }
+            }
+            index = age - 20;
+            $("#age").text(age);
+            $(".price").text(data[index][0]);
+            $("#total-price").text(data[index][1]);
+        })
+    </script>
+</body>
+</html>
